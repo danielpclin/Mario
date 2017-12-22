@@ -1,0 +1,45 @@
+#ifndef SPRITE_H
+#define SPRITE_H
+
+#include <vector>
+#include <string>
+#include "Screen.h"
+
+
+
+
+class Sprite
+{
+public:
+	Sprite();
+	Sprite(int lengthX, int lengthY);
+	Sprite(int lengthX, int lengthY, int posX, int posY);
+	~Sprite();
+	int getLengthX();
+	int getLengthY();
+	int getPosX();
+	int getPosY();
+	int getSpeedX();
+	int getSpeedY();
+	std::vector<std::string> getSpriteGrid();
+	//int setLengthX();
+	//int setLengthY();
+	void setPosX(int posX);
+	void setPosY(int posY);
+	void setSpeedX(int speedX);
+	void setSpeedY(int speedY);
+	void setSpriteGrid(std::vector<std::string>);
+	bool isPossibleMovement(int, int);
+	void update();
+protected:
+    int speedX;
+    int speedY;
+	int lengthX;
+	int lengthY;
+	int posX;//Position X on the top left of the sprite
+	int posY;//Position Y on the top left of the sprite
+	std::vector<std::string> spriteGrid;//maybe change to array of strings
+	bool gravity;
+};
+
+#endif // SPRITE_H

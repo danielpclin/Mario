@@ -1,0 +1,84 @@
+# depslib dependency file v1.0
+1513782682 source:d:\windows files\desktop\中央\計算機概論\final\mario\main.cpp
+	<iostream>
+	"Sprite.h"
+	"Screen.h"
+	<vector>
+	<string>
+	<stdio.h>
+	<time.h>
+	"Background.h"
+	<fstream>
+
+1513782681 d:\windows files\desktop\中央\計算機概論\final\mario\include\sprite.h
+	<vector>
+	<string>
+	"Screen.h"
+
+1512914602 d:\windows files\desktop\中央\計算機概論\final\mario\include\screen.h
+	"Sprite.h"
+	<Windows.h>
+	<iostream>
+	<conio.h>
+	"Background.h"
+
+1513778918 source:d:\windows files\desktop\中央\計算機概論\final\mario\src\background.cpp
+	"Background.h"
+
+1513779004 d:\windows files\desktop\中央\計算機概論\final\mario\include\background.h
+	<vector>
+	<windows.h>
+	"Screen.h"
+	<string>
+
+1513781658 source:d:\windows files\desktop\中央\計算機概論\final\mario\src\screen.cpp
+	"Screen.h"
+
+1513782681 source:d:\windows files\desktop\中央\計算機概論\final\mario\src\sprite.cpp
+	"Sprite.h"
+
+1513963835 source:d:\windows files\desktop\mario\main.cpp
+	<iostream>
+	"Sprite.h"
+	"Screen.h"
+	<vector>
+	<string>
+	<stdio.h>
+	<time.h>
+	"Background.h"
+	<fstream>
+	"Mario.h"
+
+1513957562 d:\windows files\desktop\mario\include\sprite.h
+	<vector>
+	<string>
+	"Screen.h"
+
+1512914602 d:\windows files\desktop\mario\include\screen.h
+	"Sprite.h"
+	<Windows.h>
+	<iostream>
+	<conio.h>
+	"Background.h"
+
+1513875225 source:d:\windows files\desktop\mario\src\background.cpp
+	"Background.h"
+
+1513779004 d:\windows files\desktop\mario\include\background.h
+	<vector>
+	<windows.h>
+	"Screen.h"
+	<string>
+
+1513781658 source:d:\windows files\desktop\mario\src\screen.cpp
+	"Screen.h"
+
+1513964101 source:d:\windows files\desktop\mario\src\sprite.cpp
+	"Sprite.h"
+
+1513964154 d:\windows files\desktop\mario\include\mario.h
+	<Sprite.h>
+
+1513964145 source:d:\windows files\desktop\mario\src\mario.cpp
+	"Mario.h"
+
