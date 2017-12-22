@@ -80,25 +80,6 @@ void Screen::draw(Background *background)
         SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
         cout << background->getCharMap().at(i);
     }
-    /*
-    for (int i = 0; i < Screen::getSize().Bottom; i++)
-    {
-		for (int j = 0; j < Screen::getSize().Right ; j++)
-		{
-            if(Screen::getSize().Bottom-i < background->getCharMap().size())
-            {
-                if(Screen::getSize().Right-j < background->getCharMap().at(Screen::getSize().Bottom-i).size())
-                {
-                    COORD coord;
-                    coord.X = background->getRect().Left + j;
-                    coord.Y = background->getRect().Top + i;
-                    SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
-                    cout << background->getCharMap().at(Screen::getSize().Bottom-i).at(Screen::getSize().Right-j);
-                }
-            }
-		}
-	}
-	*/
 }
 
 void Screen::clear(Sprite *sprite)
@@ -133,10 +114,3 @@ void Screen::maximize()
 {
     ShowWindow(GetConsoleWindow(), SW_MAXIMIZE);
 }
-//ShowWindow(GetConsoleWindow(), SW_MAXIMIZE);
-//CONSOLE_SCREEN_BUFFER_INFO *csbi = (CONSOLE_SCREEN_BUFFER_INFO*)malloc(sizeof(CONSOLE_SCREEN_BUFFER_INFO));
-//GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE), csbi);
-//cout << csbi->dwMaximumWindowSize.X << csbi->dwMaximumWindowSize.Y;
-//COORD *coord = (COORD*)malloc(sizeof(COORD));
-//SetConsoleDisplayMode(GetStdHandle(STD_OUTPUT_HANDLE),CONSOLE_FULLSCREEN_MODE,coord);
-//cout << coord->X << coord->Y;

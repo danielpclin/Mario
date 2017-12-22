@@ -49,7 +49,7 @@ void Mario::update()
         }else{
             setSpeedY(0);
         }
-    }else if(getSpeedY()==0){//add gravity boolean check
+    }else if(getSpeedY()==0){
         if(isPossibleMovement(getPosX(),getPosY()+1)){
             posY = getPosY()+1;
         }

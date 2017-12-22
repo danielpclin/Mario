@@ -87,12 +87,10 @@ bool Sprite::isPossibleMovement(int posX, int posY)
 {
     CONSOLE_SCREEN_BUFFER_INFO *csbi = (CONSOLE_SCREEN_BUFFER_INFO*)malloc(sizeof(CONSOLE_SCREEN_BUFFER_INFO));
     GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE), csbi);
-    if(posX<0||posY<0||posX+getLengthX()>csbi->srWindow.Right||posY+getLengthY()>csbi->srWindow.Bottom){//posY+this->getLengthY()-1>csbi->srWindow.Bottom
+    if(posX<0||posY<0||posX+getLengthX()>csbi->srWindow.Right||posY+getLengthY()>csbi->srWindow.Bottom){
         return false;
     }
-    //if(posX<0||posY<0||posX+this->getLengthX()>csbi->srWindow.Right||posY+this->getLengthY()>csbi->srWindow.Bottom){//posY+this->getLengthY()-1>csbi->srWindow.Bottom
-    //    return false;
-    //}
+
 	return true;
 }
 
