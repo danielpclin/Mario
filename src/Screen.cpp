@@ -59,7 +59,7 @@ void Screen::cls()
 
 void Screen::draw(Sprite *sprite)
 {
-    for(int i = 0; i < sprite->getSpriteGrid().size(); i++)
+    for(int i = 0; i < (int)sprite->getSpriteGrid().size(); i++)
     {
         COORD coord;
         coord.X = sprite->getPosX();
@@ -72,11 +72,11 @@ void Screen::draw(Sprite *sprite)
 
 void Screen::draw(Background *background)
 {
-    for(int i = background->getCharMap().size()-1; i >= 0; i--)
+    for(int i = 0; i < background->getCharMap().size(); i++)
     {
         COORD coord;
         coord.X = background->getCoord().X;
-        coord.Y = Screen::getSize().Bottom-background->getCharMap().size()+background->getCoord().Y + i;
+        coord.Y = background->getCoord().Y + i;
         SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
         cout << background->getCharMap().at(i);
     }

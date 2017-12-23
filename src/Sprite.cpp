@@ -66,16 +66,18 @@ vector<string> Sprite::getSpriteGrid()
 
 void Sprite::setPosX(int posX)
 {
-    if(this->isPossibleMovement(posX,this->getPosY())){
-        this->posX = posX;
-    }
+    this->posX = posX;
+    //if(this->isPossibleMovement(posX,this->getPosY(),level)){
+    //    this->posX = posX;
+    //}
 }
 
 void Sprite::setPosY(int posY)
 {
-    if(this->isPossibleMovement(this->getPosX(),posY)){
-        this->posY = posY;
-    }
+    this->posY = posY;
+    //if(this->isPossibleMovement(this->getPosX(),posY)){
+    //    this->posY = posY;
+    //}
 }
 
 void Sprite::setSpriteGrid(vector<string> spriteGrid)
@@ -83,15 +85,39 @@ void Sprite::setSpriteGrid(vector<string> spriteGrid)
 	this->spriteGrid = spriteGrid;
 }
 
-bool Sprite::isPossibleMovement(int posX, int posY)
+bool Sprite::isPossibleMovement(int posX, int posY, Level *level)
 {
+    //cout << "xy" << posX << posY;
     CONSOLE_SCREEN_BUFFER_INFO *csbi = (CONSOLE_SCREEN_BUFFER_INFO*)malloc(sizeof(CONSOLE_SCREEN_BUFFER_INFO));
     GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE), csbi);
     if(posX<0||posY<0||posX+getLengthX()>csbi->srWindow.Right||posY+getLengthY()>csbi->srWindow.Bottom){
         return false;
     }
-
+    if(!notCollideWithBackground(posX,posY,level)){
+        return false;
+    }
 	return true;
+}
+
+bool Sprite::notCollideWithBackground(int posX, int posY, Level *level)
+{
+    bool result = true;
+    for(int i = 0;i<lengthX;i++){
+        for(int j = 0;j<lengthY;j++){
+            try{
+                if(level->background->getCharMap().at(posY-Screen::getSize().Bottom+level->background->getCharMap().size()+j-1).compare(posX+i,1," ")==0){
+                    //cout << "true" << posY-Screen::getSize().Bottom+level->background->getCharMap().size()+j << " " << posX + i;
+                    result = result&&true;
+                }else{
+                    //cout << "false" << posY-Screen::getSize().Bottom+level->background->getCharMap().size()+j << " " << posX + i;
+                    result = result&&false;
+                }
+            }catch(out_of_range e){
+                result = result&&true;
+            }
+        }
+    }
+    return result;
 }
 
 int Sprite::getSpeedX()
@@ -111,7 +137,7 @@ void Sprite::setSpeedY(int speedY)
     this->speedY = speedY;
 }
 
-void Sprite::update()
+void Sprite::update(Level *level)
 {
 
 }

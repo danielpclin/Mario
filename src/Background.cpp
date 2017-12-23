@@ -7,7 +7,7 @@ Background::Background(vector<string> charMap)
     this->charMap = charMap;
     COORD coord;
     coord.X=0;
-    coord.Y=0;
+    coord.Y=Screen::getSize().Bottom;
     this->setCoord(coord);
 }
 
@@ -15,7 +15,7 @@ Background::Background()
 {
     COORD coord;
     coord.X=0;
-    coord.Y=0;
+    coord.Y=Screen::getSize().Bottom;
     this->setCoord(coord);
 }
 

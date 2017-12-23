@@ -4,7 +4,7 @@
 #include <windows.h>
 #include "Screen.h"
 #include <string>
-
+#include "Level.h"
 
 class Background
 {

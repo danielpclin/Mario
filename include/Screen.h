@@ -1,12 +1,12 @@
 #ifndef SCREEN_H
 #define SCREEN_H
 #define _WIN32_WINNT 0x500
-
 #include "Sprite.h"
 #include <Windows.h>
 #include <iostream>
 #include <conio.h>
 #include "Background.h"
+#include "Level.h"
 
 class Background;
 class Sprite;

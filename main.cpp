@@ -1,5 +1,4 @@
 #include <iostream>
-#include "Sprite.h"
 #include "Screen.h"
 #include <vector>
 #include <string>
@@ -8,14 +7,14 @@
 #include "Background.h"
 #include <fstream>
 #include "Mario.h"
-
+#include "Level.h"
 
 using namespace std;
 
-int main() {
+int main(){
     ifstream fin;
     fin.open("Background.txt");
-	Mario *mario = new Mario(2,2,8,8);
+	Mario *mario = new Mario(2,2,8,Screen::getSize().Bottom-2-2);
 	vector<string> marioGrid{"##","##"};
 	mario->setSpriteGrid(marioGrid);
 	vector<string> backgroundCharMap;
@@ -25,8 +24,12 @@ int main() {
         backgroundCharMap.push_back(str);
 	}
 	Background *background = new Background(backgroundCharMap);
+	Level *level1 = new Level();
+	level1->background = background;
+	level1->spriteVector.push_back(mario);
 	//Screen::maximize();
 	clock_t t = clock();
+	//Screen::draw(background);
 	while (true)
     {
         //Screen::setCursor(0,0);
@@ -54,7 +57,7 @@ int main() {
                     }
                 }
             }
-            mario->update();
+            mario->update(level1);
         t = clock();
 		}
 	}

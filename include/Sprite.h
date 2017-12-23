@@ -1,12 +1,13 @@
 #ifndef SPRITE_H
 #define SPRITE_H
-
+#include <iostream>
 #include <vector>
 #include <string>
 #include "Screen.h"
+#include "Level.h"
+#include <stdexcept>
 
-
-
+class Level;
 
 class Sprite
 {
@@ -29,8 +30,9 @@ public:
 	void setSpeedX(int speedX);
 	void setSpeedY(int speedY);
 	void setSpriteGrid(std::vector<std::string>);
-	bool isPossibleMovement(int, int);
-	void update();
+	bool isPossibleMovement(int posX, int posY, Level *level);
+	virtual void update(Level *level);
+	bool notCollideWithBackground(int posX, int poxY, Level *level);
 protected:
     int speedX;
     int speedY;
