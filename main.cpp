@@ -14,7 +14,7 @@ using namespace std;
 int main(){
     ifstream fin;
     fin.open("Background.txt");
-	Mario *mario = new Mario(2,2,20,Screen::getSize().Bottom-2-2);
+	Mario *mario = new Mario(2,2,20,Screen::getSize().Bottom-5);
 	vector<string> marioGrid{"##","##"};
 	mario->setSpriteGrid(marioGrid);
 	vector<string> backgroundCharMap;
@@ -26,7 +26,7 @@ int main(){
 	Background *background = new Background(backgroundCharMap);
 	COORD backgroundCoord;
 	backgroundCoord.X = 0;
-	backgroundCoord.Y = Screen::getSize().Bottom-background->getCharMap().size()+1;
+	backgroundCoord.Y = Screen::getSize().Bottom-background->getCharMap().size();
 	background->setCoord(backgroundCoord);
 	Level *level1 = new Level();
 	level1->background = background;

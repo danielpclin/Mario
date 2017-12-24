@@ -81,7 +81,7 @@ void Screen::draw(int posX, int posY, string str)
 
 void Screen::draw(Background *background)
 {
-    for(int i = 0; i < background->getCharMap().size()-1; i++)
+    for(int i = 0; i < background->getCharMap().size(); i++)
     {
         COORD coord;
         coord.X = 0;
@@ -91,13 +91,14 @@ void Screen::draw(Background *background)
     }
 }
 
+//deprecated
 void Screen::clear(Sprite *sprite , Level *level)
 {
 	for (int i = 0; i < sprite->getLengthY(); i++) {
 		for (int j = 0; j < sprite->getLengthX(); j++) {
 			COORD coord;
 			coord.X = sprite->getPosX() + j - level->background->getCoord().X;
-			coord.Y = sprite->getPosY() + i + 1;
+			coord.Y = sprite->getPosY() + i;
 			SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
 			cout << ' ';
 		}

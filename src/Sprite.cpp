@@ -102,7 +102,7 @@ bool Sprite::notCollideWithBackground(int posX, int posY, Level *level)
     for(int i = 0;i<lengthX;i++){
         for(int j = 0;j<lengthY;j++){
             try{
-                if(level->background->getCharMap().at(posY-Screen::getSize().Bottom+level->background->getCharMap().size()+j-1).compare(posX+i,1," ")==0){
+                if(level->background->getCharMap().at(posY-Screen::getSize().Bottom+level->background->getCharMap().size()+j).compare(posX+i,1," ")==0){
                     //cout << "true" << posY-Screen::getSize().Bottom+level->background->getCharMap().size()+j << " " << posX + i;
                     result = result&&true;
                 }else{
