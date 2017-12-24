@@ -37,7 +37,7 @@
 1513782681 source:d:\windows files\desktop\中央\計算機概論\final\mario\src\sprite.cpp
 	"Sprite.h"
 
-1514122106 source:d:\windows files\desktop\mario\main.cpp
+1514123745 source:d:\windows files\desktop\mario\main.cpp
 	<iostream>
 	"Screen.h"
 	<vector>
@@ -66,10 +66,10 @@
 	"Level.h"
 	<string>
 
-1514118800 source:d:\windows files\desktop\mario\src\background.cpp
+1514123745 source:d:\windows files\desktop\mario\src\background.cpp
 	"Background.h"
 
-1514113234 d:\windows files\desktop\mario\include\background.h
+1514123745 d:\windows files\desktop\mario\include\background.h
 	<vector>
 	<windows.h>
 	"Screen.h"
@@ -79,7 +79,7 @@
 1514122106 source:d:\windows files\desktop\mario\src\screen.cpp
 	"Screen.h"
 
-1514118625 source:d:\windows files\desktop\mario\src\sprite.cpp
+1514122130 source:d:\windows files\desktop\mario\src\sprite.cpp
 	"Sprite.h"
 
 1514038320 d:\windows files\desktop\mario\include\mario.h
