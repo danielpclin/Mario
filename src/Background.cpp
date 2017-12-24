@@ -43,3 +43,30 @@ vector<string> Background::getCharMap()
 {
     return this->charMap;
 }
+
+void Background::update(Level *level)
+{
+    if((backgroundCoord.X+Screen::getSize().Right-level->spriteVector.at(0)->getPosX())<=(Screen::getSize().Right*0.1))
+    {
+        if((charMap.at(0).size()-level->spriteVector.at(0)->getPosX())>=(Screen::getSize().Right*0.1))
+        {
+            this->backgroundCoord.X += 1;
+        }
+    }
+
+    if((level->spriteVector.at(0)->getPosX()-this->backgroundCoord.X)<=(Screen::getSize().Right*0.1))
+    {
+        if((level->spriteVector.at(0)->getPosX())>=(Screen::getSize().Right*0.1))
+        {
+            this->backgroundCoord.X -= 1;
+        }
+    }
+
+    //if(((this->backgroundCoord.X+Screen::getSize().Right-level->spriteVector.at(0)->getPosX())<=Screen::getSize().Right*0.1)&&!((this->charMap.at(0).size()-level->spriteVector.at(0)->getPosX())<=Screen::getSize().Right*0.1)){
+    //    Screen::draw(0,0,"Right");
+    //    this->backgroundCoord.X += 1;
+    //}
+    //if(((level->spriteVector.at(0)->getPosX()-this->backgroundCoord.X)<=Screen::getSize().Right*0.1)&&!((level->spriteVector.at(0)->getPosX())<=Screen::getSize().Right*0.1)){
+    //    this->backgroundCoord.X -= 1;
+    //}
+}

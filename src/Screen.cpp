@@ -57,12 +57,12 @@ void Screen::cls()
     SetConsoleCursorPosition( hConsole, coordScreen );
 }
 
-void Screen::draw(Sprite *sprite)
+void Screen::draw(Sprite *sprite, Level *level)
 {
     for(int i = 0; i < (int)sprite->getSpriteGrid().size(); i++)
     {
         COORD coord;
-        coord.X = sprite->getPosX();
+        coord.X = sprite->getPosX() - level->background->getCoord().X;
         coord.Y = sprite->getPosY() + i;
         SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
         cout << sprite->getSpriteGrid().at(i);
@@ -70,25 +70,34 @@ void Screen::draw(Sprite *sprite)
 
 }
 
+void Screen::draw(int posX, int posY, string str)
+{
+    COORD coord;
+    coord.X = posX;
+    coord.Y = posY;
+    SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
+    cout << str;
+}
+
 void Screen::draw(Background *background)
 {
-    for(int i = 0; i < background->getCharMap().size(); i++)
+    for(int i = 0; i < background->getCharMap().size()-1; i++)
     {
         COORD coord;
-        coord.X = background->getCoord().X;
+        coord.X = 0;
         coord.Y = background->getCoord().Y + i;
         SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
-        cout << background->getCharMap().at(i);
+        cout << background->getCharMap().at(i).substr(background->getCoord().X,Screen::getSize().Right+1);
     }
 }
 
-void Screen::clear(Sprite *sprite)
+void Screen::clear(Sprite *sprite , Level *level)
 {
 	for (int i = 0; i < sprite->getLengthY(); i++) {
 		for (int j = 0; j < sprite->getLengthX(); j++) {
 			COORD coord;
-			coord.X = sprite->getPosX() + j;
-			coord.Y = sprite->getPosY() + i;
+			coord.X = sprite->getPosX() + j - level->background->getCoord().X;
+			coord.Y = sprite->getPosY() + i + 1;
 			SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
 			cout << ' ';
 		}

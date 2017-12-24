@@ -6,6 +6,8 @@
 #include <string>
 #include "Level.h"
 
+class Level;
+
 class Background
 {
     public:
@@ -17,6 +19,7 @@ class Background
         void setCoord(COORD);
         void setCharMap(std::vector<std::string>);
         COORD getCoord();
+        void update(Level *level);
     protected:
 
     private:

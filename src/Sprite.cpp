@@ -87,10 +87,7 @@ void Sprite::setSpriteGrid(vector<string> spriteGrid)
 
 bool Sprite::isPossibleMovement(int posX, int posY, Level *level)
 {
-    //cout << "xy" << posX << posY;
-    CONSOLE_SCREEN_BUFFER_INFO *csbi = (CONSOLE_SCREEN_BUFFER_INFO*)malloc(sizeof(CONSOLE_SCREEN_BUFFER_INFO));
-    GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE), csbi);
-    if(posX<0||posY<0||posX+getLengthX()>csbi->srWindow.Right||posY+getLengthY()>csbi->srWindow.Bottom){
+    if(posX<0||posY<0||posX+lengthX-level->background->getCoord().X>Screen::getSize().Right||posY+getLengthY()>Screen::getSize().Bottom){
         return false;
     }
     if(!notCollideWithBackground(posX,posY,level)){
