@@ -2,6 +2,7 @@
 #define SCREEN_H
 #define _WIN32_WINNT 0x500
 #include "Sprite.h"
+#include "Mario.h"
 #include <Windows.h>
 #include <iostream>
 #include <conio.h>

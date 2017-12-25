@@ -1,4 +1,6 @@
 #include "Sprite.h"
+#include "Screen.h"
+#include <stdexcept>
 
 using namespace std;
 
@@ -67,17 +69,11 @@ vector<string> Sprite::getSpriteGrid()
 void Sprite::setPosX(int posX)
 {
     this->posX = posX;
-    //if(this->isPossibleMovement(posX,this->getPosY(),level)){
-    //    this->posX = posX;
-    //}
 }
 
 void Sprite::setPosY(int posY)
 {
     this->posY = posY;
-    //if(this->isPossibleMovement(this->getPosX(),posY)){
-    //    this->posY = posY;
-    //}
 }
 
 void Sprite::setSpriteGrid(vector<string> spriteGrid)
@@ -103,10 +99,8 @@ bool Sprite::notCollideWithBackground(int posX, int posY, Level *level)
         for(int j = 0;j<lengthY;j++){
             try{
                 if(level->background->getCharMap().at(posY-Screen::getSize().Bottom+level->background->getCharMap().size()+j).compare(posX+i,1," ")==0){
-                    //cout << "true" << posY-Screen::getSize().Bottom+level->background->getCharMap().size()+j << " " << posX + i;
                     result = result&&true;
                 }else{
-                    //cout << "false" << posY-Screen::getSize().Bottom+level->background->getCharMap().size()+j << " " << posX + i;
                     result = result&&false;
                 }
             }catch(out_of_range e){

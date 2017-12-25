@@ -1,11 +1,10 @@
 #ifndef LEVEL_H
 #define LEVEL_H
-#include "Background.h"
 #include <vector>
-#include "Sprite.h"
 
 class Sprite;
 class Background;
+class Mario;
 
 class Level
 {
@@ -13,6 +12,7 @@ class Level
         Level();
         virtual ~Level();
         Background *background;
+        Mario *mario;
         std::vector<Sprite *> spriteVector;
     protected:
 

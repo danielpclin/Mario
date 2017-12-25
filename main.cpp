@@ -30,7 +30,7 @@ int main(){
 	background->setCoord(backgroundCoord);
 	Level *level1 = new Level();
 	level1->background = background;
-	level1->spriteVector.push_back(mario);
+	level1->mario = mario;
 	//Screen::maximize();
 	clock_t t = clock();
 	//Screen::draw(background);

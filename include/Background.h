@@ -2,9 +2,7 @@
 #define BACKGROUND_H
 #include <vector>
 #include <windows.h>
-#include "Screen.h"
 #include <string>
-#include "Level.h"
 
 class Level;
 

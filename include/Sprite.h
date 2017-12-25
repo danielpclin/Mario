@@ -1,11 +1,7 @@
 #ifndef SPRITE_H
 #define SPRITE_H
-#include <iostream>
 #include <vector>
 #include <string>
-#include "Screen.h"
-#include "Level.h"
-#include <stdexcept>
 
 class Level;
 
