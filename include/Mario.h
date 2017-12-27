@@ -15,6 +15,7 @@ class Mario : public Sprite
         bool falling;
         int jump;
     private:
+        void getKeypress();
 };
 
 #endif // MARIO_H

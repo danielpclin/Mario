@@ -1,4 +1,5 @@
 #include "Mario.h"
+#include <windows.h>
 
 using namespace std;
 
@@ -20,6 +21,8 @@ void Mario::setJump(int jump)
 
 void Mario::update(Level *level)
 {
+    getKeypress();
+
     if(isPossibleMovement(getPosX(),getPosY()+1,level)){
         if(getSpeedY()==0){
             falling = true;
@@ -76,4 +79,25 @@ int Mario::getJump()
 bool Mario::isFalling()
 {
     return this->falling;
+}
+
+void Mario::getKeypress()
+{
+    if(GetKeyState('A') & 0x8000)
+    {
+        speedX -= 1;
+    }
+    if(GetKeyState('D') & 0x8000)
+    {
+        speedX += 1;
+    }
+    if(GetKeyState(' ') & 0x8000)
+    {
+        if(!this->isFalling()&&this->getJump() <= 1){
+            if(this->getSpeedY()==0||this->getSpeedY()==-1){
+                this->setJump(this->getJump()+1);
+                this->setSpeedY(this->getSpeedY()-6);//8
+            }
+        }
+    }
 }

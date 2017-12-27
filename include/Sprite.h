@@ -27,7 +27,7 @@ public:
 	void setSpeedY(int speedY);
 	void setSpriteGrid(std::vector<std::string>);
 	bool isPossibleMovement(int posX, int posY, Level *level);
-	virtual void update(Level *level);
+	virtual void update(Level *level) = 0;
 	bool notCollideWithBackground(int posX, int poxY, Level *level);
 protected:
     int speedX;

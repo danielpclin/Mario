@@ -94,6 +94,7 @@ void Screen::draw(Background *background)
 //deprecated
 void Screen::clear(Sprite *sprite , Level *level)
 {
+
 	for (int i = 0; i < sprite->getLengthY(); i++) {
 		for (int j = 0; j < sprite->getLengthX(); j++) {
 			COORD coord;

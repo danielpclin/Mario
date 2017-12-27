@@ -36,6 +36,7 @@
 		</Compiler>
 		<Unit filename="include/Background.h" />
 		<Unit filename="include/Game.h" />
+		<Unit filename="include/Goomba.h" />
 		<Unit filename="include/Level.h" />
 		<Unit filename="include/Mario.h" />
 		<Unit filename="include/Screen.h" />
@@ -43,6 +44,7 @@
 		<Unit filename="main.cpp" />
 		<Unit filename="src/Background.cpp" />
 		<Unit filename="src/Game.cpp" />
+		<Unit filename="src/Goomba.cpp" />
 		<Unit filename="src/Level.cpp" />
 		<Unit filename="src/Mario.cpp" />
 		<Unit filename="src/Screen.cpp" />

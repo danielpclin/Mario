@@ -128,7 +128,3 @@ void Sprite::setSpeedY(int speedY)
     this->speedY = speedY;
 }
 
-void Sprite::update(Level *level)
-{
-
-}
