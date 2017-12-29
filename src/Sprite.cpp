@@ -83,7 +83,7 @@ void Sprite::setSpriteGrid(vector<string> spriteGrid)
 
 bool Sprite::isPossibleMovement(int posX, int posY, Level *level)
 {
-    if(posX<0||posY<0||posX+lengthX-level->background->getCoord().X>Screen::getSize().Right||posY+getLengthY()>Screen::getSize().Bottom){
+    if(posX<0||posY<0||posX+getLengthX()>level->background->getCharMap().at(0).size()||posY+getLengthY()>Screen::getSize().Bottom){
         return false;
     }
     if(!notCollideWithBackground(posX,posY,level)){
@@ -127,4 +127,3 @@ void Sprite::setSpeedY(int speedY)
 {
     this->speedY = speedY;
 }
-

@@ -1,4 +1,5 @@
 #include "Screen.h"
+#include <iomanip>
 
 using namespace std;
 
@@ -59,15 +60,16 @@ void Screen::cls()
 
 void Screen::draw(Sprite *sprite, Level *level)
 {
-    for(int i = 0; i < (int)sprite->getSpriteGrid().size(); i++)
-    {
-        COORD coord;
-        coord.X = sprite->getPosX() - level->background->getCoord().X;
-        coord.Y = sprite->getPosY() + i;
-        SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
-        cout << sprite->getSpriteGrid().at(i);
+    if(sprite->getPosX()-level->background->getCoord().X>=0&&level->background->getCoord().X+getSize().Right-sprite->getPosX()-sprite->getLengthX()+1>=0){
+        for(int i = 0; i < (int)sprite->getSpriteGrid().size(); i++)
+        {
+            COORD coord;
+            coord.X = sprite->getPosX() - level->background->getCoord().X;
+            coord.Y = sprite->getPosY() + i;
+            SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
+            cout << sprite->getSpriteGrid().at(i);
+        }
     }
-
 }
 
 void Screen::draw(int posX, int posY, string str)
@@ -91,19 +93,18 @@ void Screen::draw(Background *background)
     }
 }
 
-//deprecated
 void Screen::clear(Sprite *sprite , Level *level)
 {
-
-	for (int i = 0; i < sprite->getLengthY(); i++) {
-		for (int j = 0; j < sprite->getLengthX(); j++) {
-			COORD coord;
-			coord.X = sprite->getPosX() + j - level->background->getCoord().X;
-			coord.Y = sprite->getPosY() + i;
-			SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
-			cout << ' ';
-		}
-	}
+    if(sprite->getPosX()-level->background->getCoord().X>=0&&level->background->getCoord().X+getSize().Right-sprite->getPosX()-sprite->getLengthX()+1>=0){
+        for(int i = 0; i < (int)sprite->getSpriteGrid().size(); i++)
+        {
+            COORD coord;
+            coord.X = sprite->getPosX() - level->background->getCoord().X;
+            coord.Y = sprite->getPosY() + i;
+            SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
+            cout << setw(sprite->getSpriteGrid().at(i).size()) << "";
+        }
+    }
 }
 
 void Screen::setCursor(int x, int y)

@@ -1,5 +1,6 @@
 #include "Mario.h"
 #include <windows.h>
+#include "Screen.h"
 
 using namespace std;
 
@@ -63,7 +64,7 @@ void Mario::update(Level *level)
         }else{
             setSpeedY(0);
         }
-    }else if(getSpeedY()==0){
+    }else if(getSpeedY()==0&&gravity){
         if(isPossibleMovement(getPosX(),getPosY()+1,level)){
             posY = getPosY()+1;
         }
@@ -100,4 +101,15 @@ void Mario::getKeypress()
             }
         }
     }
+}
+
+bool Mario::isPossibleMovement(int posX, int posY, Level *level)
+{
+    if(posX<0||posY<0||posX+lengthX-level->background->getCoord().X>Screen::getSize().Right||posY+getLengthY()>Screen::getSize().Bottom){
+        return false;
+    }
+    if(!notCollideWithBackground(posX,posY,level)){
+        return false;
+    }
+	return true;
 }

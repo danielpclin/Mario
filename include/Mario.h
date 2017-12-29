@@ -7,10 +7,11 @@ class Mario : public Sprite
     public:
         Mario(int lengthX, int lengthY, int posX, int posY);
         ~Mario();
-        void update(Level *level) override;
+        virtual void update(Level *level) override;
         bool isFalling();
         int getJump();
         void setJump(int jump);
+        virtual bool isPossibleMovement(int posX, int posY, Level *level) override;
     protected:
         bool falling;
         int jump;

@@ -47,17 +47,17 @@ vector<string> Background::getCharMap()
 
 void Background::update(Level *level)
 {
-    if((backgroundCoord.X+Screen::getSize().Right-level->mario->getPosX())<=(Screen::getSize().Right*0.1))
+    if((backgroundCoord.X+Screen::getSize().Right-level->mario->getPosX())<=(Screen::getSize().Right*0.3))
     {
-        if((charMap.at(0).size()-level->mario->getPosX())>=(Screen::getSize().Right*0.1))
+        if((charMap.at(0).size()-level->mario->getPosX())>=(Screen::getSize().Right*0.3))
         {
             this->backgroundCoord.X += 1;
         }
     }
 
-    if((level->mario->getPosX()-this->backgroundCoord.X)<=(Screen::getSize().Right*0.1))
+    if((level->mario->getPosX()-this->backgroundCoord.X)<=(Screen::getSize().Right*0.3))
     {
-        if((level->mario->getPosX())>=(Screen::getSize().Right*0.1))
+        if((level->mario->getPosX())>=(Screen::getSize().Right*0.3))
         {
             this->backgroundCoord.X -= 1;
         }

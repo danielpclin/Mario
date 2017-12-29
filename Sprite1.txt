@@ -1,0 +1,2 @@
+Goomba 6 6
+Goomba 80 6

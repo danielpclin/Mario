@@ -10,14 +10,17 @@ class Mario;
 class Level
 {
     public:
-        Level(std::string str);
+        Level(std::string backgroundStr, std::string spriteStr);
         virtual ~Level();
         Background *background;
         Mario *mario;
         std::vector<Sprite *> spriteVector;
+        bool gameOver;
+        int lives;
     protected:
 
     private:
+
 };
 
 #endif // LEVEL_H

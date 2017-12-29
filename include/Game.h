@@ -12,9 +12,12 @@ class Game
         virtual ~Game();
         int currentLevel;
         std::vector<Level *> levelVector;
+        void clear();
         void draw();
         void update();
-        void load(std::string str);
+        void load(std::string backgroundStr, std::string spriteStr);
+        void load(std::string backgroundStr, std::string spriteStr,int levelID);
+        bool isOver();
     protected:
 
     private:

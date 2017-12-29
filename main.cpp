@@ -1,24 +1,27 @@
 #include <time.h>
 #include "Game.h"
 #include <stdlib.h>
+#include "Screen.h"
 
 using namespace std;
 
 int main(){
+    Screen::maximize();
     Game game;
-    game.load("Level1.txt");
+    game.load("Level1.txt", "Sprite1.txt");
     game.currentLevel = 0;
-	//Screen::maximize();
 	clock_t t = clock();
-	while (true)
+	while (!game.isOver())
     {
-		if(clock()-t>=1000/40)
+		if(clock()-t>=1000/20)
         {
-            game.draw();
+            game.clear();
             game.update();
-        t = clock();
+            game.draw();
+            t = clock();
 		}
 	}
+	system("cls");
 	system("pause");
 	return 0;
 }
