@@ -18,9 +18,15 @@ class Game
         void load(std::string backgroundStr, std::string spriteStr);
         void load(std::string backgroundStr, std::string spriteStr,int levelID);
         bool isOver();
+        bool gameOver;
+        void init();
+        void run();
+        void chooseLevel();
+        void end();
     protected:
 
     private:
+        std::string backgroundString, spriteString;
 };
 
 #endif // GAME_H

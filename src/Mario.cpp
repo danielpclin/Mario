@@ -6,8 +6,9 @@ using namespace std;
 
 Mario::Mario(int lengthX, int lengthY, int posX, int posY) : Sprite(lengthX,lengthY,posX,posY)
 {
-    this->falling = false;
-	this->jump = 0;
+    falling = false;
+	jump = 0;
+	invincible = 0;
 }
 
 Mario::~Mario()
@@ -22,8 +23,13 @@ void Mario::setJump(int jump)
 
 void Mario::update(Level *level)
 {
-    getKeypress();
-
+    if(outOfBounds(getPosX(),getPosY()+1,level))
+    {
+        level->lives--;
+        level->dead = true;
+        Screen::cls();
+        return;
+    }
     if(isPossibleMovement(getPosX(),getPosY()+1,level)){
         if(getSpeedY()==0){
             falling = true;
@@ -31,6 +37,11 @@ void Mario::update(Level *level)
         }
     }else{
         falling = false;
+    }
+
+    if(invincible>0)
+    {
+        invincible--;
     }
 
     if(getSpeedX()>0){
@@ -112,4 +123,17 @@ bool Mario::isPossibleMovement(int posX, int posY, Level *level)
         return false;
     }
 	return true;
+}
+
+bool Mario::outOfBounds(int posX, int posY, Level *level)
+{
+    for(int i = 0;i<lengthX;i++){
+        for(int j = 0;j<lengthY;j++){
+            if(posY==level->background->getCharMap().size()+level->background->getCoord().Y-1)
+            {
+                return true;
+            }
+        }
+    }
+    return false;
 }

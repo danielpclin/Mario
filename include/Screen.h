@@ -18,10 +18,10 @@ class Screen
 public:
 	Screen();
 	~Screen();
-	static void draw(Sprite *, Level *level);
-	static void draw(Background *);
-	static void draw(int posX, int posY, std::string str);
-	static void clear(Sprite *, Level *level);
+	static void draw(Sprite *, Level *level, int color = 15);
+	static void draw(Background *, int color = 15);
+	static void draw(int posX, int posY, std::string str, int color = 15);
+	static void clear(Sprite *, Level *level, int color = 15);
 	static void setCursor(int, int);
 	static void cls();
 	static SMALL_RECT getSize();

@@ -1,2 +1,4 @@
-Goomba 6 6
-Goomba 80 6
+Goomba 40 -10
+Goomba 80 -10
+Star 60 -8
+Flag 40 -4

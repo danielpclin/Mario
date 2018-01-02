@@ -12,11 +12,13 @@ class Mario : public Sprite
         int getJump();
         void setJump(int jump);
         virtual bool isPossibleMovement(int posX, int posY, Level *level) override;
+        void getKeypress();
+        int invincible;
+        bool outOfBounds(int posX, int posY, Level *level);
     protected:
         bool falling;
         int jump;
     private:
-        void getKeypress();
 };
 
 #endif // MARIO_H

@@ -1,6 +1,7 @@
 #include "Screen.h"
 #include <iomanip>
 
+
 using namespace std;
 
 Screen::Screen()
@@ -58,8 +59,12 @@ void Screen::cls()
     SetConsoleCursorPosition( hConsole, coordScreen );
 }
 
-void Screen::draw(Sprite *sprite, Level *level)
+void Screen::draw(Sprite *sprite, Level *level, int color)
 {
+    if(sprite->invisible==true){
+        return;
+    }
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), color);
     if(sprite->getPosX()-level->background->getCoord().X>=0&&level->background->getCoord().X+getSize().Right-sprite->getPosX()-sprite->getLengthX()+1>=0){
         for(int i = 0; i < (int)sprite->getSpriteGrid().size(); i++)
         {
@@ -72,8 +77,9 @@ void Screen::draw(Sprite *sprite, Level *level)
     }
 }
 
-void Screen::draw(int posX, int posY, string str)
+void Screen::draw(int posX, int posY, string str, int color)
 {
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), color);
     COORD coord;
     coord.X = posX;
     coord.Y = posY;
@@ -81,8 +87,9 @@ void Screen::draw(int posX, int posY, string str)
     cout << str;
 }
 
-void Screen::draw(Background *background)
+void Screen::draw(Background *background, int color)
 {
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), color);
     for(int i = 0; i < background->getCharMap().size(); i++)
     {
         COORD coord;
@@ -93,8 +100,9 @@ void Screen::draw(Background *background)
     }
 }
 
-void Screen::clear(Sprite *sprite , Level *level)
+void Screen::clear(Sprite *sprite , Level *level, int color)
 {
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), color);
     if(sprite->getPosX()-level->background->getCoord().X>=0&&level->background->getCoord().X+getSize().Right-sprite->getPosX()-sprite->getLengthX()+1>=0){
         for(int i = 0; i < (int)sprite->getSpriteGrid().size(); i++)
         {

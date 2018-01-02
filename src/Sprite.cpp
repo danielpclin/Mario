@@ -13,6 +13,8 @@ Sprite::Sprite()
 	this->speedX = 0;
 	this->speedY = 0;
 	this->gravity = true;
+	this->color = 15;
+	this->invisible = false;
 }
 
 Sprite::Sprite(int lengthX, int lengthY)
@@ -24,6 +26,8 @@ Sprite::Sprite(int lengthX, int lengthY)
     this->speedX = 0;
 	this->speedY = 0;
 	this->gravity = true;
+	this->color = 15;
+	this->invisible = false;
 }
 
 Sprite::Sprite(int lengthX, int lengthY, int posX, int posY)
@@ -35,6 +39,8 @@ Sprite::Sprite(int lengthX, int lengthY, int posX, int posY)
 	this->speedX = 0;
 	this->speedY = 0;
 	this->gravity = true;
+	this->color = 15;
+	this->invisible = false;
 }
 
 Sprite::~Sprite()

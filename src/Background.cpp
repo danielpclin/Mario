@@ -9,7 +9,7 @@ Background::Background(vector<string> charMap)
     COORD coord;
     coord.X=0;
     coord.Y=0;
-    this->setCoord(coord);
+    setCoord(coord);
 }
 
 Background::Background()

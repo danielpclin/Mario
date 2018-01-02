@@ -15,8 +15,9 @@ class Level
         Background *background;
         Mario *mario;
         std::vector<Sprite *> spriteVector;
-        bool gameOver;
-        int lives;
+        static int lives;
+        bool finished;
+        bool dead;
     protected:
 
     private:

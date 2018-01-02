@@ -1,14 +1,16 @@
 #include "Level.h"
 #include "Screen.h"
 #include "Goomba.h"
+#include "Star.h"
 #include <fstream>
+#include "Flag.h"
 
 using namespace std;
 
 Level::Level(string backgroundStr, string spriteStr)
 {
 	Mario *mario = new Mario(2,2,20,Screen::getSize().Bottom-5);
-	vector<string> marioGrid{"##","##"};
+	vector<string> marioGrid{"@@","><"};
 	mario->setSpriteGrid(marioGrid);
 	vector<string> backgroundCharMap;
 	ifstream fin(backgroundStr);
@@ -25,19 +27,24 @@ Level::Level(string backgroundStr, string spriteStr)
         if(str.compare("Goomba")==0){
             int posX, posY;
             fin >> posX >> posY;
-            Goomba *goomba = new Goomba(2,2,posX,posY);
-            vector<string> goombaGrid = {"GG","GG"};
+            Goomba *goomba = new Goomba(2,2,posX,Screen::getSize().Bottom+posY);
+            vector<string> goombaGrid = {"/\\","@@"};
             goomba->setSpriteGrid(goombaGrid);
             spriteVector.push_back(goomba);
         }else if(str.compare("Star")==0){
-            /*
             int posX, posY;
             fin >> posX >> posY;
-            Star *star = new Star(2,2,posX,posY);
-            vector<string> starGrid = {"SS","SS"};
+            Star *star = new Star(2,1,posX,Screen::getSize().Bottom+posY);
+            vector<string> starGrid = {"¡¹"};
             star->setSpriteGrid(starGrid);
             spriteVector.push_back(star);
-            */
+        }else if(str.compare("Flag")==0){
+            int posX, posY;
+            fin >> posX >> posY;
+            Flag *flag = new Flag(2,2,posX,Screen::getSize().Bottom+posY);
+            vector<string> flagGrid = {"|>","| "};
+            flag->setSpriteGrid(flagGrid);
+            spriteVector.push_back(flag);
         }
 	}
 	fin.close();
@@ -48,11 +55,13 @@ Level::Level(string backgroundStr, string spriteStr)
 	background->setCoord(backgroundCoord);
 	this->background = background;
 	this->mario = mario;
-	lives = 3;
-	gameOver = false;
+    finished = false;
+    dead = false;
 }
 
 Level::~Level()
 {
     //dtor
 }
+
+int Level::lives = 3;

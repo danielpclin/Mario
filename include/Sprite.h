@@ -29,6 +29,8 @@ public:
 	virtual bool isPossibleMovement(int posX, int posY, Level *level);
 	virtual void update(Level *level) = 0;
 	bool notCollideWithBackground(int posX, int poxY, Level *level);
+	int color;
+	bool invisible;
 protected:
     int speedX;
     int speedY;
