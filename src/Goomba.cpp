@@ -49,7 +49,7 @@ void Goomba::update(Level *level)
         }else{
             if(counter<1){
                 if(getSpeedX()>0){
-                    if(isPossibleMovement(getPosX()+1,getPosY(),level)&&!(notCollideWithBackground(getPosX()+1,getPosY()+1,level))){
+                    if(isPossibleMovement(getPosX()+1,getPosY(),level)&&!(notCollideWithBackground(getPosX()+2,getPosY()+1,level))){
                         posX = posX+1;
                     }else{
                         setSpeedX(-1);
@@ -58,7 +58,7 @@ void Goomba::update(Level *level)
                 counter++;
             }else{
                 if(getSpeedX()<0){
-                    if(isPossibleMovement(getPosX()-1,getPosY(),level)&&!(notCollideWithBackground(getPosX()-1,getPosY()+1,level))){
+                    if(isPossibleMovement(getPosX()-1,getPosY(),level)&&!(notCollideWithBackground(getPosX()-2,getPosY()+1,level))){
                         posX = getPosX()-1;
                     }else{
                         setSpeedX(1);

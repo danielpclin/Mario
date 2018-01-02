@@ -117,7 +117,6 @@ void Game::run()
         {
             init();
             load(backgroundString, spriteString,3);
-            cout << "test";
         }
 	}
 }

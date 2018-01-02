@@ -1,1 +1,1 @@
-bin\debug\Mario.exe
+bin\release\Mario.exe
