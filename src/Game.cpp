@@ -171,7 +171,7 @@ void Game::chooseLevel()
         cin >> spriteFile;
         spriteString = spriteFile;
         backgroundString = levelFile;
-        load(levelFile, spriteFile);
+        load(levelFile, spriteFile,3);
     }
     Screen::cls();
 }

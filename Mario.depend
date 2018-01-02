@@ -93,13 +93,11 @@
 	<fstream>
 	"Flag.h"
 
-1514537261 source:d:\windows files\desktop\mario\mario\main.cpp
-	<time.h>
+1514885935 source:d:\windows files\desktop\mario\mario\main.cpp
 	"Game.h"
 	<stdlib.h>
-	"Screen.h"
 
-1514276245 d:\windows files\desktop\mario\mario\include\screen.h
+1514885935 d:\windows files\desktop\mario\mario\include\screen.h
 	"Sprite.h"
 	"Mario.h"
 	<Windows.h>
@@ -109,11 +107,11 @@
 	"Level.h"
 	<string>
 
-1514528504 d:\windows files\desktop\mario\mario\include\sprite.h
+1514885935 d:\windows files\desktop\mario\mario\include\sprite.h
 	<vector>
 	<string>
 
-1514528806 d:\windows files\desktop\mario\mario\include\mario.h
+1514885935 d:\windows files\desktop\mario\mario\include\mario.h
 	"Sprite.h"
 
 1514276245 d:\windows files\desktop\mario\mario\include\background.h
@@ -121,30 +119,32 @@
 	<windows.h>
 	<string>
 
-1514535745 d:\windows files\desktop\mario\mario\include\level.h
+1514885935 d:\windows files\desktop\mario\mario\include\level.h
 	<vector>
 	<string>
 
-1514536875 source:d:\windows files\desktop\mario\mario\src\background.cpp
+1514885935 source:d:\windows files\desktop\mario\mario\src\background.cpp
 	"Background.h"
 	"Screen.h"
 
-1514535691 source:d:\windows files\desktop\mario\mario\src\level.cpp
+1514885935 source:d:\windows files\desktop\mario\mario\src\level.cpp
 	"Level.h"
 	"Screen.h"
 	"Goomba.h"
+	"Star.h"
 	<fstream>
+	"Flag.h"
 
-1514528832 source:d:\windows files\desktop\mario\mario\src\mario.cpp
+1514885935 source:d:\windows files\desktop\mario\mario\src\mario.cpp
 	"Mario.h"
 	<windows.h>
 	"Screen.h"
 
-1514534371 source:d:\windows files\desktop\mario\mario\src\screen.cpp
+1514885935 source:d:\windows files\desktop\mario\mario\src\screen.cpp
 	"Screen.h"
 	<iomanip>
 
-1514529054 source:d:\windows files\desktop\mario\mario\src\sprite.cpp
+1514885935 source:d:\windows files\desktop\mario\mario\src\sprite.cpp
 	"Sprite.h"
 	"Screen.h"
 	<stdexcept>
@@ -157,14 +157,15 @@
 	"Mario.h"
 	"Sprite.h"
 
-1514536311 d:\windows files\desktop\mario\mario\include\game.h
+1514885935 d:\windows files\desktop\mario\mario\include\game.h
 	<vector>
 	<string>
 
-1514536781 source:d:\windows files\desktop\mario\mario\src\goomba.cpp
+1514885935 source:d:\windows files\desktop\mario\mario\src\goomba.cpp
 	"Goomba.h"
 	"Level.h"
 	"Mario.h"
+	"Screen.h"
 
 1514525872 d:\windows files\desktop\mario\mario\include\goomba.h
 	"Sprite.h"
@@ -207,4 +208,20 @@
 
 1514827117 d:\windows files\desktop\mario\include\flag.h
 	<Sprite.h>
+
+1514885935 source:d:\windows files\desktop\mario\mario\src\flag.cpp
+	"Flag.h"
+	"Level.h"
+	"Mario.h"
+
+1514885935 d:\windows files\desktop\mario\mario\include\flag.h
+	<Sprite.h>
+
+1514885935 d:\windows files\desktop\mario\mario\include\star.h
+	<Sprite.h>
+
+1514885935 source:d:\windows files\desktop\mario\mario\src\star.cpp
+	"Star.h"
+	"Level.h"
+	"Mario.h"
 
