@@ -1,7 +1,0 @@
-Game init() load levels not including custom level.
-Game chooseLevel() output choose level screen and load custom level of necessary.
-Game run() runs a while loop until game over, the loop clears the screen update the sprites and draws them on the screen.
-Game end() clears screen and outputs game over message.
-game loads levels into a levelVector.
-Level contains Mario spriteVector and background.
-The spriteVector stores star, flag and goomba, these sprites all inherit the base class Sprite, in sprite there is a function update, this is where the game logic happens.
